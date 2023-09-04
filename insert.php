@@ -17,6 +17,20 @@ $name = $_POST['name'];
 $city = $_POST['city'];
 $nic = $_POST['nic'];
 
+//basic validations 
+$name = trim($name);
+$city = trim($city);
+$nic = trim($nic);
+
+$crit1 = $name !="";
+$crit2 = $city !=""; 
+$crit3 = $nic !="";  
+
+if(!$crit1 ) echo ('Name Is Required</br>');
+if(!$crit2 ) echo ('City Is Required</br>');
+if(!$crit3 ) echo ('NicIs Required</br>');
+
+if(!$crit1 || !$crit2 || !$crit3)die();
 // SQL query to insert data into the 'employee' table
 $sql = "INSERT INTO employee (name, city, nic) VALUES ('$name', '$city', '$nic')";
 
