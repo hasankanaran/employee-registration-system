@@ -28,7 +28,7 @@ if (!$crit4) echo ('Name should have more than 3 characters </br>');
 if (!$crit5) echo ('City should have more than 2 characters</br>');
 if (!$crit6) echo ('Wrong Nic</br>');
 
-if (!$crit1 || !$crit2 || !$crit3) die();
+if (!$crit1 || !$crit2 || !$crit3 || !$crit4 || !$crit5 || !$crit6 ) die();
 
 
 // Create a connection to the database

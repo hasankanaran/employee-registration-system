@@ -7,18 +7,25 @@
 </head>
 <body>
     <h1>User Information Form</h1>
-    <form action="insert.php" method="post">
+    <form action="insert.php" method="post" id="form">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" /><br /><br />
+        <input type="text" id="txtname" name="name" /><br /><br />
 
         <label for="city">City:</label>
-        <input type="text" id="city" name="city" /><br /><br />
+        <input type="text" id="txtcity" name="city" /><br /><br />
 
         <label for="nic">NIC:</label>
-        <input type="text" id="nic" name="nic" /><br /><br />
+        <input type="text" id="txtnic" name="nic" /><br /><br />
 
         <button type="submit">Submit</button>
     </form>
+
+    <script>
+       const form = document.querySelector('#form');
+       const txtname = document.querySelector('#txtname');
+       const txtcity = document.querySelector('#txtcity');
+       const txtnic = document.querySelector('#txtnic');
+    </script>
 </body>
 </html>
 
