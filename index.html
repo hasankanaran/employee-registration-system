@@ -3,23 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <title>Employee Registration</title>
   </head>
   <body>
-    <h1>User Information Form</h1>
-    <form action="insert.php" method="post" id="form">
-      <label for="name">Name:</label>
-      <input type="text" id="txtname" name="name" /><br /><br />
-
-      <label for="city">City:</label>
-      <input type="text" id="txtcity" name="city" /><br /><br />
-
-      <label for="nic">NIC:</label>
-      <input type="text" id="txtnic" name="nic" /><br /><br />
-
-      <button type="submit">Submit</button>
-    </form>
-
+    <div class="container-fluid col-5 mt-3 " >
+      <h1 class="d-flex justify-content-center">User Information Form</h1>
+      <form action="insert.php" method="post" id="form">
+        <div class="mb-3 mt-3">
+          <label class="form-label">User Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="txtname"
+            name="name"
+            placeholder="Enter your name"
+          />
+          <div class="mb-3 mt-3" >
+            <label class="form-label">City:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="txtcity"
+              name="city"
+              placeholder="Enter Your Name"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">NIC:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="txtnic"
+              name="nic"
+              placeholder="Enter NIC Number"
+            />
+          </div>
+          <div class="d-flex justify-content-center mt-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          
+        </div>
+      </form>
+    </div>
     <script>
       const form = document.querySelector("#form");
       form.addEventListener("submit", function (e) {
@@ -46,8 +78,12 @@
         if (!crit5) msg += "City should have more than 2 characters\n";
         if (!crit6) msg += "Wrong Nic\n";
 
-        if (msg != "") {
-          alert(msg);
+        if (msg != "") {            
+            Swal.fire({
+            icon: 'error',
+            title: 'Validation Error',
+            text: msg,
+        });
           e.preventDefault();
         }
       });
