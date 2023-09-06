@@ -13,7 +13,7 @@
     <title>Employee Registration</title>
   </head>
   <body>
-    <div class="container-fluid col-5 mt-3 " >
+    <div class="container-fluid col-5 mt-3">
       <h1 class="d-flex justify-content-center">User Information Form</h1>
       <form action="insert.php" method="post" id="form">
         <div class="mb-3 mt-3">
@@ -25,7 +25,8 @@
             name="name"
             placeholder="Enter your name"
           />
-          <div class="mb-3 mt-3" >
+          <span class="error-msg" id="nameFiledMsg"></span>
+          <div class="mb-3 mt-3">
             <label class="form-label">City:</label>
             <input
               type="text"
@@ -34,6 +35,7 @@
               name="city"
               placeholder="Enter Your Name"
             />
+            <span class="error-msg" id="cityFiledMsg"></span>
           </div>
           <div class="mb-3">
             <label class="form-label">NIC:</label>
@@ -44,20 +46,24 @@
               name="nic"
               placeholder="Enter NIC Number"
             />
+            <span class="error-msg" id="nicFiledMsg"></span>
           </div>
           <div class="d-flex justify-content-center mt-3">
             <button type="submit" class="btn btn-primary">Submit</button>
           </div>
-          
         </div>
       </form>
     </div>
     <script>
       const form = document.querySelector("#form");
+
       form.addEventListener("submit", function (e) {
         const txtname = document.querySelector("#txtname");
         const txtcity = document.querySelector("#txtcity");
         const txtnic = document.querySelector("#txtnic");
+        const nameFiledMsg = document.querySelector("#nameFiledMsg");
+        const cityFiledMsg = document.querySelector("#cityFiledMsg");
+        const nicFiledMsg = document.querySelector("#nicFiledMsg");
 
         const name = txtname.value.trim();
         const city = txtcity.value.trim();
@@ -78,12 +84,12 @@
         if (!crit5) msg += "City should have more than 2 characters\n";
         if (!crit6) msg += "Wrong Nic\n";
 
-        if (msg != "") {            
-            Swal.fire({
-            icon: 'error',
-            title: 'Validation Error',
+        if (msg != "") {
+          Swal.fire({
+            icon: "error",
+            title: "Validation Error",
             text: msg,
-        });
+          });
           e.preventDefault();
         }
       });

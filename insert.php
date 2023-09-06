@@ -60,5 +60,7 @@ if (mysqli_query($con, $sql)) {
 // Close the database connection
 mysqli_close($con);
 ?>
-
+<script>
+    
+</script>
 </html>
