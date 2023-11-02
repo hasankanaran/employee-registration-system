@@ -17,6 +17,14 @@
                 <th>NIC</th>
             </tr>
         </thead>
+        <tbody>
+            <?php 
+            $con = mysqli_connect('localhost','root','root','t1');
+            $sql = "SELECT * FROM employee";
+            $result = mysqli_query($con,$sql);
+
+            ?>
+        </tbody>
     </table>
     </div>
    
